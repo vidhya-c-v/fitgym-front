@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <div>
 
-<nav className="navbar navbar-expand-lg bg-dark">
+<nav className="navbar navbar-expand-lg bg-danger">
   <div className="container-fluid">
     <a className="navbar-brand" href="#">
     <img src="https://us.123rf.com/450wm/imogi/imogi1805/imogi180500240/102169959-vintage-fitness-concept.jpg?ver=6" alt="Bootstrap" width="100" height="80" />
@@ -16,7 +16,7 @@ const NavBar = () => {
     <div className="collapse navbar-collapse" id="navbarNavDropdown">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#"><font  color="white">Home</font></a>
+          <a className="nav-link active" aria-current="page" href="/"><font  color="white">Home</font></a>
         </li>
         
         
