@@ -8,6 +8,7 @@ import AdminLogin from './components/AdminLogin';
 import UserLogin from './components/UserLogin';
 
 import TrainerLogin from './components/TrainerLogin';
+import AdminHomePage from './components/AdminHomePage';
 
 
 function App() {
@@ -18,11 +19,10 @@ function App() {
         <Route path='/' element={<Home/>}/>
 
         <Route path='/adminlogin' element={<AdminLogin/>}/>
-
-
         <Route path='/userlogin' element = {<UserLogin/>} />
-
         <Route path='/trainerLogin' element={<TrainerLogin/>}/>
+
+        <Route path='/adminHomePage' element={<AdminHomePage/>} />
 
       </Routes>
       </BrowserRouter>
