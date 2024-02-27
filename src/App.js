@@ -14,6 +14,8 @@ import AdminHomePage from './components/AdminHomePage';
 
 import ViewUserList from './components/ViewUserList';
 import ViewTrainerList from './components/ViewTrainerList';
+import AddPackage from './components/AddPackage';
+import UpdatePackage from './components/UpdatePackage';
 
 
 function App() {
@@ -34,6 +36,10 @@ function App() {
 
         <Route path='/viewuserlist' element = {<ViewUserList/>} />
         <Route path='/viewtrainerlist' element = {<ViewTrainerList/>} />
+
+        <Route path='/addpackage' element = {<AddPackage/>} />
+        <Route path='/updatepackage' element = {<UpdatePackage/>} />
+
 
       </Routes>
       </BrowserRouter>
