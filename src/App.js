@@ -9,6 +9,7 @@ import UserLogin from './components/UserLogin';
 
 import TrainerLogin from './components/TrainerLogin';
 import ViewUserList from './components/ViewUserList';
+import ViewTrainerList from './components/ViewTrainerList';
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
         <Route path='/trainerLogin' element={<TrainerLogin/>}/>
 
         <Route path='/viewuserlist' element = {<ViewUserList/>} />
+
+        <Route path='/viewtrainerlist' element = {<ViewTrainerList/>} />
 
       </Routes>
       </BrowserRouter>
