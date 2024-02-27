@@ -18,7 +18,11 @@ import AddPackage from './components/AddPackage';
 import UpdatePackage from './components/UpdatePackage';
 import Search from './components/Search';
 import SearchTrainer from './components/SearchTrainer';
+
 import AddUser from './components/AddUser';
+
+import AddTrainer from './components/AddTrainer';
+
 
 
 function App() {
@@ -39,6 +43,7 @@ function App() {
 
         <Route path='/viewuserlist' element = {<ViewUserList/>} />
         <Route path='/viewtrainerlist' element = {<ViewTrainerList/>} />
+        <Route path='/addtrainer' element = {<AddTrainer/>} />
 
         <Route path='/addpackage' element = {<AddPackage/>} />
         <Route path='/updatepackage' element = {<UpdatePackage/>} />

@@ -22,7 +22,7 @@ const AdminNavBar = () => {
           </Link>
           <ul className="dropdown-menu">
             <li><Link className="dropdown-item" to="#">Add Users</Link></li>
-            <li><Link className="dropdown-item" to="#">View Users</Link></li>
+            <li><Link className="dropdown-item" to="/viewuserlist">View Users</Link></li>
           </ul>
         </li>
 
@@ -31,8 +31,8 @@ const AdminNavBar = () => {
             Trainers
           </Link>
           <ul className="dropdown-menu">
-            <li><Link className="dropdown-item" to="#">Add Trainers</Link></li>
-            <li><Link className="dropdown-item" to="#">View Trainers</Link></li>
+            <li><Link className="dropdown-item" to="/addtrainer">Add Trainers</Link></li>
+            <li><Link className="dropdown-item" to="/viewtrainerlist">View Trainers</Link></li>
           </ul>
         </li>
 
