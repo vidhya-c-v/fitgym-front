@@ -8,6 +8,7 @@ import AdminLogin from './components/AdminLogin';
 import UserLogin from './components/UserLogin';
 
 import TrainerLogin from './components/TrainerLogin';
+import ViewUserList from './components/ViewUserList';
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
         <Route path='/userlogin' element = {<UserLogin/>} />
 
         <Route path='/trainerLogin' element={<TrainerLogin/>}/>
+
+        <Route path='/viewuserlist' element = {<ViewUserList/>} />
 
       </Routes>
       </BrowserRouter>
