@@ -27,7 +27,7 @@ const NavBar = () => {
                 </a>
                 <ul className="dropdown-menu">
                   <li><Link className="dropdown-item" to="#">Admin login</Link></li>
-                  <li><Link className="dropdown-item" to="#">Trainer login</Link></li>
+                  <li><Link className="dropdown-item" to="/trainerLogin">Trainer login</Link></li>
                   <li><Link className="dropdown-item" to="/userlogin">User login</Link></li>
                 </ul>
               </li>
