@@ -26,7 +26,7 @@ const NavBar = () => {
           <font  color="white"> Login</font>
           </a>
           <ul className="dropdown-menu">
-            <li><Link className="dropdown-item" to="#">Admin login</Link></li>
+            <li><Link className="dropdown-item" to="/adminlogin">Admin login</Link></li>
             <li><Link className="dropdown-item" to="#">Trainer login</Link></li>
             <li><Link className="dropdown-item" to="#">User login</Link></li>
           </ul>
