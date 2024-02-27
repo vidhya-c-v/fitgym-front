@@ -116,7 +116,8 @@ const Home = () => {
             </div>
             <br></br>
 
-            <div className="container">
+            <div className="container" style={{ backgroundImage: `url('https://img.freepik.com/premium-photo/contemporary-spotless-fitness-gym-center-interiorgenerative-ai_391052-10889.jpg?size=626&ext=jpg&ga=GA1.1.1788068356.1708992000&semt=ais')`, backgroundSize: 'cover', backgroundPosition: 'center', height: '100vh' }}>
+            
                 <div className="row">
                 <center>
                     <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xl-6">
