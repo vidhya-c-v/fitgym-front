@@ -10,6 +10,7 @@ import UserLogin from './components/UserLogin';
 import TrainerLogin from './components/TrainerLogin';
 import ViewUserList from './components/ViewUserList';
 import ViewTrainerList from './components/ViewTrainerList';
+import AddPackage from './components/AddPackage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/trainerLogin' element={<TrainerLogin/>}/>
         <Route path='/viewuserlist' element = {<ViewUserList/>} />
         <Route path='/viewtrainerlist' element = {<ViewTrainerList/>} />
+        <Route path='/addpackage' element = {<AddPackage/>} />
 
       </Routes>
       </BrowserRouter>
