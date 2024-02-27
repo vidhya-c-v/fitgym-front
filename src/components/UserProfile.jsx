@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react'
 import { useState } from 'react';
+import UserNavBar from './UserNavBar';
 
 const UserProfile = () => {
     const [input, setInput] = new useState(
@@ -20,6 +21,7 @@ const UserProfile = () => {
     }
     return (
         <div>
+            <UserNavBar/>
 
             <div className="container">
                 <div className="row">

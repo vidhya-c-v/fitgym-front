@@ -1,8 +1,10 @@
 import React from 'react'
+import UserNavBar from './UserNavBar'
 
 const PackageDetails = () => {
     return (
         <div>
+            <UserNavBar/>
             <div className="container">
                 <div className="row g-3">
 

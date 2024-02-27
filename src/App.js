@@ -25,6 +25,7 @@ function App() {
         <Route path='/trainerLogin' element={<TrainerLogin/>}/>
         <Route path='/viewuserlist' element = {<ViewUserList/>} />
         <Route path='/viewtrainerlist' element = {<ViewTrainerList/>} />
+
       </Routes>
       </BrowserRouter>
       
