@@ -18,6 +18,7 @@ import AddPackage from './components/AddPackage';
 import UpdatePackage from './components/UpdatePackage';
 import Search from './components/Search';
 import SearchTrainer from './components/SearchTrainer';
+import AddUser from './components/AddUser';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Route path='/updatepackage' element = {<UpdatePackage/>} />
         <Route path='/searchuser' element = {<Search/>} />
         <Route path='/searchtrainer' element = {<SearchTrainer/>} />
+        <Route path='/adduser' element = {<AddUser/>} />
 
 
       </Routes>
