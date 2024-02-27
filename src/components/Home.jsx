@@ -163,9 +163,7 @@ const Home = () => {
                                                 <Link class="btn btn-primary" >USER LOGIN</Link>
 
                                             </div>
-                                            <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                                                <Link to="#" class="btn btn-success">NEW USER</Link>
-                                            </div>
+                                            
                                         </div>
                                     </div>
 
