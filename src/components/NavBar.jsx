@@ -19,8 +19,7 @@ const NavBar = () => {
           <a className="nav-link active" aria-current="page" href="/"><font  color="white">Home</font></a>
         </li>
         
-        
-        
+
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <font  color="white"> Login</font>
