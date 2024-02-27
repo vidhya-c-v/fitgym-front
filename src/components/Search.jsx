@@ -29,7 +29,7 @@ const Search = () => {
                                                 <strong>name:</strong>  <br />
                                                 <strong>age:</strong>  <br />
                                                 <strong>place:</strong>  <br />
-                                                <strong>phoneNo:</strong>  <br />
+                                                <strong>email:</strong>  <br />
 
                                                 <strong>package:</strong>  <br />
                                             </li>
