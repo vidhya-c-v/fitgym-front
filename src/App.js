@@ -17,6 +17,7 @@ import ViewTrainerList from './components/ViewTrainerList';
 import AddPackage from './components/AddPackage';
 import UpdatePackage from './components/UpdatePackage';
 import Search from './components/Search';
+import SearchTrainer from './components/SearchTrainer';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path='/addpackage' element = {<AddPackage/>} />
         <Route path='/updatepackage' element = {<UpdatePackage/>} />
         <Route path='/searchuser' element = {<Search/>} />
+        <Route path='/searchtrainer' element = {<SearchTrainer/>} />
 
 
       </Routes>
