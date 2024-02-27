@@ -8,8 +8,13 @@ import PackageDetails from './components/PackageDetails';
 import AdminLogin from './components/AdminLogin';
 import UserLogin from './components/UserLogin';
 import TrainerLogin from './components/TrainerLogin';
+
+import AdminHomePage from './components/AdminHomePage';
+
+
 import ViewUserList from './components/ViewUserList';
 import ViewTrainerList from './components/ViewTrainerList';
+
 
 function App() {
   return (
@@ -23,8 +28,13 @@ function App() {
         <Route path='/adminlogin' element={<AdminLogin/>}/>
         <Route path='/userlogin' element = {<UserLogin/>} />
         <Route path='/trainerLogin' element={<TrainerLogin/>}/>
+
+
+        <Route path='/adminHomePage' element={<AdminHomePage/>} />
+
         <Route path='/viewuserlist' element = {<ViewUserList/>} />
         <Route path='/viewtrainerlist' element = {<ViewTrainerList/>} />
+
       </Routes>
       </BrowserRouter>
       
