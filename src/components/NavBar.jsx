@@ -29,11 +29,13 @@ const NavBar = () => {
               </li>
             </ul>
           </div>
-        </div>
-      </nav>
+    </nav>
 
     </div>
   );
 };
 
-export default NavBar;
+
+export default NavBar
+
+
