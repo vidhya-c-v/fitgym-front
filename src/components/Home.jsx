@@ -139,6 +139,7 @@ const Home = () => {
                 <div className="row">
                     <center>
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xl-6">
+                            <br></br><br></br><br></br>
                             <div className="card">
                                 <div className="card-body">
                                     <img height="150px" src="https://media.glamour.com/photos/6581eaa61a3a643f59419d93/1:1/w_1080,h_1080,c_limit/Go-To-Gym.gif" class="card-img-top" alt="..." />
