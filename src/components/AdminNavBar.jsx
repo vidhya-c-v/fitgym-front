@@ -43,7 +43,7 @@ const AdminNavBar = () => {
           <ul className="dropdown-menu">
             <li><Link className="dropdown-item" to="/addpackage">Add Package</Link></li>
             <li><Link className="dropdown-item" to="/updatepackage">Update Package</Link></li>
-            <li><Link className="dropdown-item" to="/updatepackage">View Package</Link></li>
+            <li><Link className="dropdown-item" to="/packagedetails">View Package</Link></li>
           </ul>
         </li>
 
@@ -53,7 +53,7 @@ const AdminNavBar = () => {
           </Link>
           <ul className="dropdown-menu">
             <li><Link className="dropdown-item" to="/searchtrainer">Search Trainer</Link></li>
-            <li><Link className="dropdown-item" to="/searchuser">Search Users</Link></li>
+            <li><Link className="dropdown-item" to="/searchmember">Search Users</Link></li>
           </ul>
         </li>
 
