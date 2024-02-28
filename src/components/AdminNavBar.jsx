@@ -21,7 +21,7 @@ const AdminNavBar = () => {
             Users
           </Link>
           <ul className="dropdown-menu">
-            <li><Link className="dropdown-item" to="#">Add Users</Link></li>
+            <li><Link className="dropdown-item" to="/adduser">Add Users</Link></li>
             <li><Link className="dropdown-item" to="/viewuserlist">View Users</Link></li>
           </ul>
         </li>
@@ -41,17 +41,25 @@ const AdminNavBar = () => {
             Packages
           </Link>
           <ul className="dropdown-menu">
-            <li><Link className="dropdown-item" to="#">Add Package</Link></li>
-            <li><Link className="dropdown-item" to="#">View Package</Link></li>
+            <li><Link className="dropdown-item" to="/addpackage">Add Package</Link></li>
+            <li><Link className="dropdown-item" to="/updatepackage">Update Package</Link></li>
           </ul>
         </li>
 
-        <button className="btn btn-outline-light">Logout</button>
+        <li className="nav-item dropdown">
+          <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Search
+          </Link>
+          <ul className="dropdown-menu">
+            <li><Link className="dropdown-item" to="/searchtrainer">Search Trainer</Link></li>
+            <li><Link className="dropdown-item" to="/searchuser">Search Users</Link></li>
+          </ul>
+        </li>
+
 
       </ul>
-      <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search Trainers" aria-label="Search"/>
-        <button className="btn btn-outline-light" type="submit">Search </button>
+      <form className="d-flex" role="logout">
+        <button className="btn btn-outline-light" type="submit">Logout</button>
       </form>
     </div>
   </div>
