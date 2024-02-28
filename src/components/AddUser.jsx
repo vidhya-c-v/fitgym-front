@@ -68,6 +68,39 @@ const AddUser = () => {
                         <input type="password" className="form-control" name="packageAmount" />
 
                     </div>
+                    <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                        <label htmlFor="" className="form-label">Registraion Fees Paid</label>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                YES
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                NO
+                            </label>
+                        </div>
+                    </div>
+
+                    <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                    <label htmlFor="" className="form-label">Package Fees Paid</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked />
+                            <label class="form-check-label" for="exampleRadios1">
+                                YES
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" />
+                            <label class="form-check-label" for="exampleRadios2">
+                               NO
+                            </label>
+                        </div>
+                        
+                    </div>
                     
 
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
