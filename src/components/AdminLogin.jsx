@@ -1,14 +1,45 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import NavBar from './NavBar'
 
 const AdminLogin = () => {
-    return (
-        <div>
+    const navigate=useNavigate()
+    const [input,setInput] = new useState(
+        {
+          "username":"",
+          "password":""
+        }
+      )
+      const inputHandler = (event)=>{
+        setInput({...input,[event.target.name]:event.target.value})
+      }
+      const readValues = ()=>{
+        console.log(input)
+        if(input.username=="admin" && input.password=="admin")
+        {
+            navigate("/adminHomePage")
+          
+          setInput({
+            "username":"",
+            "password":""
+          })
+        }
+        else
+        {
+          alert("Invalid Username or Password")
+          setInput(
+            {
+                "username":"",
+                "password":""
+              }
+          )
+        }
+      }
+  return (
+    <div>
+        <NavBar/>
 
-            <NavBar />
-
-            <div className="container">
+         <div className="container">
                 <div className="row g-4">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         <br />
@@ -27,40 +58,33 @@ const AdminLogin = () => {
                                                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                                             <br />
                                                             <label htmlFor="" className="form-label">USERNAME</label>
-                                                            <input type="email" name="" id="" className="form-control" />
+                                                            <input type="text" className="form-control" name="username" value={input.usernam} onChange={inputHandler} />
                                                         </div>
                                                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                                             <label htmlFor="" className="form-label">PASSWORD</label>
-                                                            <input type="password" name="" id="" className="form-control" />
-
-
+                                                            <input type="password" className="form-control" name="password" value={input.password} onChange={inputHandler}/>
                                                         </div>
-
-
-
                                                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                                                            <Link class="btn btn-primary" >LOGIN</Link>
-
+                                                        <center> <button className="btn btn-success" onClick={readValues}>Login</button></center>
                                                         </div>
-
                                                     </div>
                                                 </div>
-
-
                                             </div>
                                         </div>
-
                                     </div>
                                 </center>
                             </div>
                         </div>
                     </div>
-
                 </div>
-            </div>
+        </div> 
+                                
 
-        </div>
-    )
+
+
+      
+    </div>
+  )
 }
 
 export default AdminLogin
