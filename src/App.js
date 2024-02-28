@@ -27,6 +27,7 @@ import TrainerHomePage from './components/TrainerHomePage';
 
 
 
+
 function App() {
   return (
     <div >
@@ -54,6 +55,7 @@ function App() {
         <Route path='/searchuser' element = {<Search/>} />
         <Route path='/searchtrainer' element = {<SearchTrainer/>} />
         <Route path='/adduser' element = {<AddUser/>} />
+       
 
 
       </Routes>
