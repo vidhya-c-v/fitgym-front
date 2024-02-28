@@ -7,7 +7,6 @@ const UserNavBar = () => {
             <nav className="navbar navbar-expand-lg bg-danger">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="#">
-                        <img src="https://us.123rf.com/450wm/imogi/imogi1805/imogi180500240/102169959-vintage-fitness-concept.jpg?ver=6" alt="Bootstrap" width="100" height="80" />
                         <font color="white"><b> &nbsp;&nbsp;FitGym</b></font>
 
                     </Link>
@@ -15,23 +14,21 @@ const UserNavBar = () => {
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/"><font color="white">Home</font></Link>
+                                <Link className="nav-link active" aria-current="page" to="/userhomepage"><font color="white">User Home</font></Link>
                             </li>
 
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/"><font color="white">Profile</font></Link>
+                                <Link className="nav-link active" aria-current="page" to="/userprofile"><font color="white">Profile</font></Link>
                             </li>
 
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/"><font color="white">Package</font></Link>
+                                <Link className="nav-link active" aria-current="page" to="/packagedetails"><font color="white">Package</font></Link>
                             </li>
-
-                            <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/"><font color="white">Logout</font></Link>
-                            </li>
-
 
                         </ul>
+                        <form className="d-flex" role="logout">
+                            <button className="btn btn-outline-light" type="submit">Logout</button>
+                        </form>
                     </div>
                 </div>
             </nav>
