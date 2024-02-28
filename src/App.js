@@ -23,6 +23,7 @@ import AddUser from './components/AddUser';
 
 import AddTrainer from './components/AddTrainer';
 import UserHomePage from './components/UserHomePage';
+import TrainerHomePage from './components/TrainerHomePage';
 
 
 
@@ -42,6 +43,7 @@ function App() {
 
         <Route path='/adminHomePage' element={<AdminHomePage/>} />
         <Route path='/userhomepage' element={<UserHomePage/>}/>
+        <Route path='/trainerhomepage' element={<TrainerHomePage/>} />
 
         <Route path='/viewuserlist' element = {<ViewUserList/>} />
         <Route path='/viewtrainerlist' element = {<ViewTrainerList/>} />
