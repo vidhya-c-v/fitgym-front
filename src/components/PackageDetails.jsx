@@ -26,7 +26,7 @@ const PackageDetails = () => {
 
                                 <div class="card">
                                     <div class="card-header">
-                                        Current Package
+                                        Package
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title">{value.packageName}</h5>
