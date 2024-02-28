@@ -54,7 +54,7 @@ function App() {
 
         <Route path='/addpackage' element = {<AddPackage/>} />
         <Route path='/updatepackage' element = {<UpdatePackage/>} />
-        <Route path='/searchuser' element = {<Search/>} />
+        
         <Route path='/searchtrainer' element = {<SearchTrainer/>} />
         <Route path='/adduser' element = {<AddUser/>} />
         <Route path='/searchmember' element = {<SearchUser/>} />
