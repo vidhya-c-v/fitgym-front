@@ -26,6 +26,7 @@ import UserHomePage from './components/UserHomePage';
 import TrainerHomePage from './components/TrainerHomePage';
 import SearchUser from './components/SearchUser';
 import TrainerSearch from './components/TrainerSearch';
+import PackageView from './components/PackageView';
 
 
 
@@ -60,6 +61,7 @@ function App() {
         <Route path='/adduser' element = {<AddUser/>} />
         <Route path='/searchmember' element = {<SearchUser/>} />
         <Route path='/trainersearch' element = {<TrainerSearch/>} />
+        <Route path='/packageview' element = {<PackageView/>} />
        
 
 

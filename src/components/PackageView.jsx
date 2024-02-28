@@ -3,8 +3,9 @@ import UserNavBar from './UserNavBar'
 import { useState } from 'react'
 import axios from 'axios'
 import { useEffect } from 'react'
+import AdminNavBar from './AdminNavBar'
 
-const PackageDetails = () => {
+const PackageView = () => {
     const [data, setData] = new useState([])
 
     const getData = () => {
@@ -15,17 +16,14 @@ const PackageDetails = () => {
     useEffect(() => { getData() }, [])
     return (
         <div>
-            <UserNavBar/>
-            <br></br>
+            <AdminNavBar/>
             <div className="container">
                 <div className="row g-3">
-                    
 
                     {
                         data.map(
                             (value, index) => {
                                 return <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                    
 
                                 <div class="card">
                                     <div class="card-header">
@@ -52,4 +50,4 @@ const PackageDetails = () => {
     )
 }
 
-export default PackageDetails
+export default PackageView
