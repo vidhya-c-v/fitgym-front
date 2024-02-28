@@ -16,7 +16,7 @@ import ViewUserList from './components/ViewUserList';
 import ViewTrainerList from './components/ViewTrainerList';
 import AddPackage from './components/AddPackage';
 import UpdatePackage from './components/UpdatePackage';
-import Search from './components/Search';
+
 import SearchTrainer from './components/SearchTrainer';
 
 import AddUser from './components/AddUser';
@@ -25,6 +25,7 @@ import AddTrainer from './components/AddTrainer';
 import UserHomePage from './components/UserHomePage';
 import TrainerHomePage from './components/TrainerHomePage';
 import SearchUser from './components/SearchUser';
+import TrainerSearch from './components/TrainerSearch';
 
 
 
@@ -58,6 +59,7 @@ function App() {
         <Route path='/searchtrainer' element = {<SearchTrainer/>} />
         <Route path='/adduser' element = {<AddUser/>} />
         <Route path='/searchmember' element = {<SearchUser/>} />
+        <Route path='/trainersearch' element = {<TrainerSearch/>} />
        
 
 
