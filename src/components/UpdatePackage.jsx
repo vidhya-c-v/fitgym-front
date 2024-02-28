@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
+import AdminNavBar from './AdminNavBar'
 
 const UpdatePackage = () => {
     const [input, setInput] = new useState(
@@ -47,6 +48,8 @@ const UpdatePackage = () => {
     }
     return (
         <div>
+            <AdminNavBar/>
+            <br></br>
 
             <div className="container">
                 <div className="row g-3">
