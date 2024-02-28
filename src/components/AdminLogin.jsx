@@ -1,8 +1,38 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import NavBar from './NavBar'
 
 const AdminLogin = () => {
+    const [input,setInput] = useState({
+
+        "username":"",
+        "password":""
+    })
+    const navigate=useNavigate()
+    
+
+    const inputHandler=(event)=>{
+        setInput({...input,[event.target.name]:event.target.value})
+    }
+
+    
+
+    const readValues=()=>{
+        if (input.username == 'admin' && input.password == 'admin') 
+        {
+
+            alert("Succesfully loged in")
+            navigate('/adminHomePage')
+            
+            
+            
+        } else 
+        {
+            
+            alert("Incorrect Password")
+            
+        }
+    }
     return (
         <div>
 
@@ -27,11 +57,11 @@ const AdminLogin = () => {
                                                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                                             <br />
                                                             <label htmlFor="" className="form-label">USERNAME</label>
-                                                            <input type="email" name="" id="" className="form-control" />
+                                                            <input type="text" name="username" id="username" className="form-control" value={input.username} onChange={inputHandler}/>
                                                         </div>
                                                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                                             <label htmlFor="" className="form-label">PASSWORD</label>
-                                                            <input type="password" name="" id="" className="form-control" />
+                                                            <input type="password" name="password" id="password" className="form-control" value={input.password} onChange={inputHandler}/>
 
 
                                                         </div>
@@ -39,7 +69,7 @@ const AdminLogin = () => {
 
 
                                                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                                                            <Link class="btn btn-primary" >LOGIN</Link>
+                                                            <Link class="btn btn-primary" onClick={readValues}>LOGIN</Link>
 
                                                         </div>
 
