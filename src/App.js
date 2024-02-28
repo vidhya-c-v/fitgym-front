@@ -24,6 +24,7 @@ import AddUser from './components/AddUser';
 import AddTrainer from './components/AddTrainer';
 import UserHomePage from './components/UserHomePage';
 import TrainerHomePage from './components/TrainerHomePage';
+import SearchUser from './components/SearchUser';
 
 
 
@@ -56,6 +57,7 @@ function App() {
         <Route path='/searchuser' element = {<Search/>} />
         <Route path='/searchtrainer' element = {<SearchTrainer/>} />
         <Route path='/adduser' element = {<AddUser/>} />
+        <Route path='/searchmember' element = {<SearchUser/>} />
        
 
 

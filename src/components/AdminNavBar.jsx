@@ -53,7 +53,7 @@ const AdminNavBar = () => {
           </Link>
           <ul className="dropdown-menu">
             <li><Link className="dropdown-item" to="/searchtrainer">Search Trainer</Link></li>
-            <li><Link className="dropdown-item" to="/searchuser">Search Users</Link></li>
+            <li><Link className="dropdown-item" to="/searchmember">Search Users</Link></li>
           </ul>
         </li>
 
