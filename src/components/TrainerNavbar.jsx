@@ -22,9 +22,13 @@ const TrainerNavbar = () => {
                                     Attendence
                                 </Link>
                                 <ul className="dropdown-menu">
-                                    <li><Link className="dropdown-item" to="/searchtrainer">Mark Attendence</Link></li>
-                                    <li><Link className="dropdown-item" to="/searchuser">View Attendence</Link></li>
+                                    <li><Link className="dropdown-item" to="/">Mark Attendence</Link></li>
+                                    <li><Link className="dropdown-item" to="/">View Attendence</Link></li>
                                 </ul>
+                            </li>
+
+                            <li className="nav-item">
+                                <Link className="nav-link active" aria-current="page" to=""><font color="white">View Profile</font></Link>
                             </li>
 
                         </ul>
