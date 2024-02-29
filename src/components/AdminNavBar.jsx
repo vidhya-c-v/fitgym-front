@@ -3,6 +3,32 @@ import { Link } from 'react-router-dom'
 
 const AdminNavBar = () => {
 
+    return (
+        <div>
+            <nav className="navbar navbar-expand-lg bg-danger">
+  <div className="container-fluid">
+    <Link className="navbar-brand" to="#">FitGym</Link>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <Link className="nav-link active" aria-current="page" to="/adminHomePage">Admin Portal</Link>
+        </li>
+        
+        <li className="nav-item dropdown">
+          <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Users
+          </Link>
+          <ul className="dropdown-menu">
+            <li><Link className="dropdown-item" to="/add">Add Users</Link></li>
+            <li><Link className="dropdown-item" to="/viewuserlist">View Users</Link></li>
+            
+          </ul>
+        </li>
+
+
   
   return (
     <div>

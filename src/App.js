@@ -1,7 +1,7 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import NavBar from './components/NavBar';
+
 import Home from './components/Home';
 import UserProfile from './components/UserProfile';
 import PackageDetails from './components/PackageDetails';
@@ -27,6 +27,7 @@ import TrainerHomePage from './components/TrainerHomePage';
 import SearchUser from './components/SearchUser';
 import TrainerSearch from './components/TrainerSearch';
 import PackageView from './components/PackageView';
+import UserAdd from './components/UserAdd';
 
 
 
@@ -58,10 +59,13 @@ function App() {
         <Route path='/updatepackage' element = {<UpdatePackage/>} />
         
         
-        <Route path='/adduser' element = {<AddUser/>} />
+        
         <Route path='/searchmember' element = {<SearchUser/>} />
         <Route path='/trainersearch' element = {<TrainerSearch/>} />
         <Route path='/packageview' element = {<PackageView/>} />
+
+        <Route path='/adduser' element = {<AddUser/>} />
+        <Route path='/add' element = {<UserAdd/>} />
        
 
 
