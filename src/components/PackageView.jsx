@@ -16,34 +16,35 @@ const PackageView = () => {
     useEffect(() => { getData() }, [])
     return (
         <div>
-            <AdminNavBar/>
+            <AdminNavBar />
             <div className="container">
                 <div className="row g-3">
-
+                <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Sl.No</th>
+                                <th scope="col">Package Nmae</th>
+                                <th scope="col">Package Description</th>
+                                <th scope="col">Package Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                     {
                         data.map(
                             (value, index) => {
-                                return <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                return <tr>
+                                <th scope="row">{index+1}</th>
+                                <td>{value.packageName}</td>
+                                <td>{value.packageDes}</td>
+                                <td>{value.packageAmount}</td>
+                            </tr>
 
-                                <div class="card">
-                                    <div class="card-header">
-                                        Package
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">{value.packageName}</h5>
-                                        <p class="card-text">{value.packageDes}</p>
-                                        <p class="card-text">{value.packageAmount}</p>
-                                    </div>
-                                </div>
-        
-                            </div>
                             })
                     }
-                    
-                    
-                    
-                    
-                    
+                    </tbody>
+                    </table>
+</div>
                 </div>
             </div>
         </div>
