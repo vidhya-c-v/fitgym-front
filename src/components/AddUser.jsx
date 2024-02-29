@@ -34,7 +34,7 @@ const AddUser = () => {
     }
 
     const readValues = () => {
-        axios.post("http://localhost:3001/member/addmember", input).then(
+        axios.post("http://localhost:3001/api/member/addmember", input).then(
             (response) => {
                 if (response.data.status == "success") {
 
