@@ -19,6 +19,7 @@ const UserLogin = () => {
         axios.post("http://localhost:3001/api/member/signin", input).then(
             (response) => {
                 if (response.data.status == "success") {
+                    sessionStorage.setItem("token",response.data.token)
                     sessionStorage.setItem("userid", response.data.userdata._id)
                     navig("/userhomepage")
                 } else if (response.data.status == "incorrect password") {
