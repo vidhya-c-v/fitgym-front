@@ -1,8 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavBar from './NavBar'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const UserLogin = () => {
+
+    const [input, setInput] = new useState(
+        {
+            "emailid": "",
+            "password": ""
+        }
+    )
+    const navig = useNavigate()
+    const inputHandler = (event) => {
+        setInput({ ...input, [event.target.name]: event.target.value })
+    }
+    const readValues = () => {
+        axios.post("http://localhost:3001/api/member/signin", input).then(
+            (response) => {
+                if (response.data.status == "success") {
+                    sessionStorage.setItem("userid", response.data.userdata._id)
+                    navig("/userhomepage")
+                } else if (response.data.status == "incorrect password") {
+                    alert("Incorrect Password")
+                    setInput(
+                        {
+                            "email": "",
+                            "password": ""
+                        }
+                    )
+                }
+                else {
+                    alert("No user Found")
+                }
+            }
+        )
+    }
+
+
     return (
         <div>
             <NavBar />
@@ -26,11 +61,11 @@ const UserLogin = () => {
                                                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                                             <br/>
                                                             <label htmlFor="" className="form-label">EMAIL-ID</label>
-                                                            <input type="email" name="" id="" className="form-control" />
+                                                            <input type="email" name="email" value={input.email} onChange={inputHandler}  className="form-control" />
                                                         </div>
                                                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                                             <label htmlFor="" className="form-label">PASSWORD</label>
-                                                            <input type="password" name="" id="" className="form-control" />
+                                                            <input type="password" name="password" value={input.password} onChange={inputHandler}  className="form-control" />
 
 
                                                         </div>
@@ -38,7 +73,7 @@ const UserLogin = () => {
 
 
                                                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                                                            <Link class="btn btn-primary" >LOGIN</Link>
+                                                            <Link class="btn btn-primary" onClick={readValues} >LOGIN</Link>
 
                                                         </div>
 

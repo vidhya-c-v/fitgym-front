@@ -18,6 +18,7 @@ const AdminNavBar = () => {
                 <Link className="nav-link active" aria-current="page" to="/adminHomePage">Admin Portal</Link>
               </li>
 
+
               <li className="nav-item dropdown">
                 <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Users
@@ -37,6 +38,28 @@ const AdminNavBar = () => {
                   <li><Link className="dropdown-item" to="/viewtrainerlist">View Trainers</Link></li>
                 </ul>
               </li>
+
+        <li className="nav-item dropdown">
+          <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Packages
+          </Link>
+          <ul className="dropdown-menu">
+            <li><Link className="dropdown-item" to="/addpackage">Add Package</Link></li>
+            <li><Link className="dropdown-item" to="/updatepackage">Update Package</Link></li>
+            <li><Link className="dropdown-item" to="/packageview">View Package</Link></li>
+          </ul>
+        </li>
+
+        <li className="nav-item dropdown">
+          <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Search
+          </Link>
+          <ul className="dropdown-menu">
+            <li><Link className="dropdown-item" to="/trainersearch">Search Trainer</Link></li>
+            <li><Link className="dropdown-item" to="/searchmember">Search Users</Link></li>
+          </ul>
+        </li>
+
 
               <li className="nav-item dropdown">
                 <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

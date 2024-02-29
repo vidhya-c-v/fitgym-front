@@ -1,8 +1,49 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavBar from './NavBar'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const TrainerLogin = () => {
+
+    const [input, setInput] = new useState(
+        {
+            "emailid": "",
+            "password": ""
+        }
+    )
+    const navig = useNavigate()
+    const inputHandler = (event) => {
+        setInput({ ...input, [event.target.name]: event.target.value })
+    }
+    const readValues = () => {
+        axios.post("http://localhost:3001/api/trainer/signintrainer", input).then(
+            (response) => {
+                if (response.data.status == "success") {
+                    sessionStorage.setItem("trainerid", response.data.trainerdata._id)
+                    navig("/trainerhomepage")
+                    setInput(
+                        {
+                            "emailid": "",
+                            "password": ""
+                        }
+                    )
+                } else if (response.data.status == "incorrect password") {
+                    alert("Incorrect Password")
+                    setInput(
+                        {
+                            "emailid": "",
+                            "password": ""
+                        }
+                    )
+                }
+                else {
+                    alert("No user Found")
+                }
+            }
+        )
+    }
+
+
     return (
         <div>
             <NavBar />
@@ -26,15 +67,15 @@ const TrainerLogin = () => {
                                                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                                             <br />
                                                             <label htmlFor="" className="form-label">EMAIL-ID</label>
-                                                            <input type="email" name="" id="" className="form-control" />
+                                                            <input type="email" name="emailid" value={input.emailid} onChange={inputHandler}  className="form-control" />
                                                         </div>
                                                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                                             <label htmlFor="" className="form-label">PASSWORD</label>
-                                                            <input type="password" name="" id="" className="form-control" />
+                                                            <input type="password" name="password" value={input.password} onChange={inputHandler}  className="form-control" />
 
                                                         </div>
                                                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                                                            <Link class="btn btn-primary" >LOGIN</Link>
+                                                            <Link class="btn btn-primary" onClick={readValues} >LOGIN</Link>
 
                                                         </div>
 
@@ -57,7 +98,7 @@ const TrainerLogin = () => {
 
 
         </div>
-        
+
     )
 }
 
