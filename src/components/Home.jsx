@@ -43,7 +43,7 @@ const Home = () => {
             </b></center>
             <div class="container">
                 <div class="row g-4">
-                    
+
                     <div class="col col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                         <div class="card" >
                             <img height="250px" src="https://static.wixstatic.com/media/6ade35_a3136df213c249deb0f7c28779d685a9~mv2.png/v1/fill/w_480,h_480,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/6ade35_a3136df213c249deb0f7c28779d685a9~mv2.png" class="card-img-top" alt="..." />
@@ -57,7 +57,7 @@ const Home = () => {
                     </div>
                     <div class="col col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                         <div class="card" >
-                            <img height="250px" src="https://res.cloudinary.com/teepublic/image/private/s--dp3RpyYN--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_ffffff,e_outline:35/co_ffffff,e_outline:inner_fill:35/co_ffffff,e_outline:35/co_ffffff,e_outline:inner_fill:35/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_313,q_auto:good:420,w_313/v1512204983/production/designs/2129667_0" class="card-img-top" alt="..." />
+                            <img height="250px" src="https://centaur-wp.s3.eu-central-1.amazonaws.com/creativereview/prod/content/uploads/2022/03/extra-logo-old-new.gif?auto=compress,format&q=60&w=1080&h=1080" class="card-img-top" alt="..." />
                             <div class="card-body">
                                 <h5 class="card-title">EXTRA PACKAGE</h5>
                                 <p class="card-text">Two trainer for many</p>
@@ -69,7 +69,7 @@ const Home = () => {
 
                     <div class="col col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                         <div class="card" >
-                            <img height="250px" src="https://lh3.googleusercontent.com/proxy/pzmGQQuGHa-Qpf5VjmHOISJFklT1dZPvsTj3tFfMLsXOLUdqKqNbDj5eYpUbFX3SEbJUdNiqVF3J5nOuZxDwtZmBZzCZCwIHSrK0LZvCSfTxK_Y8b1UGZndabfFbzYyiuwM" class="card-img-top" alt="..." />
+                            <img height="250px" src="https://img.freepik.com/free-vector/premium-collection-badge-design-vector_53876-43822.jpg?size=338&ext=jpg&ga=GA1.1.1395880969.1708992000&semt=ais" class="card-img-top" alt="..." />
                             <div class="card-body">
                                 <h5 class="card-title">PREMIUM PACKAGE</h5>
                                 <p class="card-text">Five trainer for many</p>
@@ -156,7 +156,7 @@ const Home = () => {
                                                 <Link class="btn btn-primary" >USER LOGIN</Link>
 
                                             </div>
-                                            
+
                                         </div>
                                     </div>
 
