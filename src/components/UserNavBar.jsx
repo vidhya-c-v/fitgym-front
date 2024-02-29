@@ -1,7 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const UserNavBar = () => {
+
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        sessionStorage.clear()
+        navigate('/userlogin')
+    };
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-danger">
@@ -26,9 +34,9 @@ const UserNavBar = () => {
                             </li>
 
                         </ul>
-                        <form className="d-flex" role="logout">
-                            <button className="btn btn-outline-light" type="submit">Logout</button>
-                        </form>
+                        <button className="btn btn-outline-light" onClick={handleLogout}>
+                            Logout
+                        </button>
                     </div>
                 </div>
             </nav>
