@@ -21,8 +21,9 @@ const AdminNavBar = () => {
             Users
           </Link>
           <ul className="dropdown-menu">
-            <li><Link className="dropdown-item" to="/adduser">Add Users</Link></li>
+            <li><Link className="dropdown-item" to="/add">Add Users</Link></li>
             <li><Link className="dropdown-item" to="/viewuserlist">View Users</Link></li>
+            
           </ul>
         </li>
 
