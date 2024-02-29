@@ -61,9 +61,7 @@ col-lg-12 col-xl-12 col-xxl-12">
                                                 <strong>Age:</strong> {value.age} <br />
                                                 <strong>Place:</strong> {value.place} <br />
                                                 <strong>Regsiter Date:</strong> {value.registerDate} <br />
-                                                <strong>PackageId:</strong> {value.packageId} <br />
-                                                <strong>Last Package Update Date:</strong> {value.lastPackageUpdateDate} <br />
-                                                
+                                                <strong>Package Name:</strong> {value.packageId.packageName} <br />
                                             </li>
                                         }
                                         )}
