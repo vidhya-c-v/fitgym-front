@@ -1,7 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 const TrainerNavbar = () => {
+
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        sessionStorage.clear()
+        navigate('/trainerlogin')
+    };
+
+    
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-danger">
@@ -32,9 +41,9 @@ const TrainerNavbar = () => {
                             </li>
 
                         </ul>
-                        <form className="d-flex" role="logout">
-                            <button className="btn btn-outline-light" type="submit">Logout</button>
-                        </form>
+                        <button className="btn btn-outline-light" onClick={handleLogout}>
+                            Logout
+                        </button>
                     </div>
                 </div>
             </nav>
