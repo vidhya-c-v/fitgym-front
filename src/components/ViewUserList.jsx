@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import UserNavBar from './UserNavBar'
 import AdminNavBar from './AdminNavBar'
+import axios from 'axios'
 
 const ViewUserList = () => {
+    const [data,setData] = new useState([])
+    const getData = ()=>{
+        axios.get("").then(
+            (response)=>{
+                setData(response.data)
+            }
+        )
+    }
   return (
     <div>
         <AdminNavBar/>
