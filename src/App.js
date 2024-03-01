@@ -61,7 +61,7 @@ function App() {
         
         
         <Route path='/searchmember' element = {<SearchUser/>} />
-        <Route path='/trainersearch' element = {<TrainerSearch/>} />
+        <Route path='/TrainerSearch' element = {<TrainerSearch/>} />
         <Route path='/packageview' element = {<PackageView/>} />
 
         <Route path='/adduser' element = {<AddUser/>} />
