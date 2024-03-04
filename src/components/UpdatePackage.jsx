@@ -1,9 +1,18 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import AdminNavBar from './AdminNavBar'
 
 const UpdatePackage = () => {
+    const [data, setData] = new useState([])
+
+    const getData = () => {
+        axios.get("http://localhost:3001/api/package/viewallpackage").then((response) => {
+            setData(response.data)
+        })
+    } 
+    useEffect(() => { getData() }, [])
+
     const [input, setInput] = new useState(
         {
             email: "",
@@ -14,6 +23,7 @@ const UpdatePackage = () => {
         setInput({ ...input, [event.target.name]: event.target.value })
     }
     const readValues = () => {
+        
         console.log(input)
         axios.post("http://localhost:3001/api/package/updatepackage", input).then((response) => {
             console.log(response.data)
@@ -59,16 +69,21 @@ const UpdatePackage = () => {
                         <input type="text" className="form-control" name="email" value={input.email} onChange={inputHandler} />
 
                     </div>
-                    <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                     <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
-                        <label htmlFor="" className="form-label">Package</label>
-                        <select id="" className="form-control" name='packagename' value={input.packagename} onChange={inputHandler}>
-                            <option value="">select package</option>
-                            <option value="premium">premium</option>
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
-                    </div>
+                                <label htmlFor="" className="form-label">Package Id</label>
+                                <select className="form-control" name="packageId" id="" onChange={inputHandler}>
+                                <option>--Select package--</option>
+                                    {
+                                        data.map(
+                                            (value, index) => {
+                                                return <option value={value._id} >{value.packageName}</option>
+
+                                            }
+                                        )
+                                    }
+                                </select>
+                            </div>
 
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         <button className="btn btn-success" onClick={readValues}>Update Package</button>
