@@ -1,12 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import UserNavBar from './UserNavBar'
 import AdminNavBar from './AdminNavBar'
+import axios from 'axios'
 
 const ViewUserList = () => {
-  return (
-    <div>
-        <AdminNavBar/>
-        <div className="container">
+    const [data, setData] = new useState([])
+    const getData = () => {
+        axios.get("http://localhost:3001/api/member/viewallmembers").then(
+            (response) => {
+                setData(response.data)
+            }
+        )
+    }
+    useEffect(() => { getData() }, [])
+
+    const deleteAction = (id)=>{
+        let data = {"_id":id}
+        axios.post("http://localhost:3001/api/member/deletemember",data).then(
+            (response)=>{
+                if(response.data.status == "success")
+                {
+                    alert("User details deleted from list")
+                    getData()
+                }
+            }
+        )
+    }
+    return (
+        <div>
+            <AdminNavBar />
+            <div className="container">
                 <div className="row">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         <div className="row g-3">
@@ -21,26 +44,34 @@ const ViewUserList = () => {
                                             <th scope="col">Weight</th>
                                             <th scope="col">Blood Group</th>
                                             <th scope="col">E-mail</th>
-                                            <th scope="col">Package</th>
+                                            <th scope="col">Package Amount</th>
                                             <th scope="col">Registration Date</th>
+                                            <th scope="col">Last Packege Update</th>
                                             <th scope="col"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        <tr>
-                                            <th scope="row">Name</th>
-                                            <td>Place</td>
-                                            <td>Age</td>
-                                            <td>Height</td>
-                                            <td>Weight</td>
-                                            <td>Blood</td>
-                                            <td>mail</td>
-                                            <td>Package</td>
-                                            <td>Registration</td>
-                                            <td><button className="btn btn-danger">Delete</button></td>
-                                        </tr>
-                                        
+                                        {
+                                            data.map(
+                                                (value, index) => {
+                                                    return <tr>
+                                                        <th scope="row">{value.name}</th>
+                                                        <td>{value.place}</td>
+                                                        <td>{value.age}</td>
+                                                        <td>{value.height}</td>
+                                                        <td>{value.weight}</td>
+                                                        <td>{value.bloodGroup}</td>
+                                                        <td>{value.email}</td>
+                                                        <td>{value.previousPackageAmount}</td>
+                                                        <td>{value.registerDate}</td>
+                                                        <td>{value.lastPackageUpdateDate}</td>
+                                                        <br /><br /><br /><td><button className="btn btn-danger" onClick={()=>{deleteAction(value._id)}}>Delete</button></td>
+                                                    </tr>
+                                                }
+                                            )
+                                        }
+
                                     </tbody>
                                 </table>
                             </div>
@@ -49,8 +80,8 @@ const ViewUserList = () => {
                     </div>
                 </div>
             </div>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default ViewUserList

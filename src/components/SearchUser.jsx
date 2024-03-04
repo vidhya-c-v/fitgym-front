@@ -4,6 +4,7 @@ import axios from 'axios'
 import AdminNavBar from './AdminNavBar'
 
 const SearchUser = () => {
+    
     const [input, setInput] = new useState(
         {
             "email": ""
@@ -19,7 +20,7 @@ const SearchUser = () => {
 
 
     const readValues = () => {
-        axios.post("http://localhost:3001/api/member/search", { email: input.email }).then(
+        axios.post("http://localhost:3001/api/member/viewmemberdetails", { email: input.email }).then(
             (response) => {
                 setData(response.data)
                 if (response.data.length == 0) {
@@ -61,7 +62,7 @@ col-lg-12 col-xl-12 col-xxl-12">
                                                 <strong>Age:</strong> {value.age} <br />
                                                 <strong>Place:</strong> {value.place} <br />
                                                 <strong>Regsiter Date:</strong> {value.registerDate} <br />
-                                                <strong>Package Name:</strong> {value.packageId.packageName} <br />
+                                                {/* <strong>Package Name:</strong> {value.packageId.packageName} <br /> */}
                                             </li>
                                         }
                                         )}

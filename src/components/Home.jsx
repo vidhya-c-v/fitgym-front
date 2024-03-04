@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from './NavBar'
 import { Link } from 'react-router-dom'
 import Footer from './Footer'
+import axios from 'axios'
 
 const Home = () => {
+    
+        const [data, setData] = new useState([])
+        const getData = () => {
+          axios.get("http://localhost:3001/api/package/viewallpackage").then(
+            (response) => { setData(response.data) })
+        }
+        useEffect(() => { getData() }, [])
     return (
         <div className='homebg'>
             <NavBar />
@@ -35,27 +43,37 @@ const Home = () => {
             </div>
             <br></br>
 
-            <center><b>
-                <font color="white">
-                    <h4>PACKAGES</h4>
-                    <br />
-                </font>
-            </b></center>
-            <div class="container">
-                <div class="row g-4">
+            <div className="container">
+        <div className="row">
+          <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+            <div className="row"><center>
+              
+              <h4><font color="white">PACKAGES</font></h4></center>
+               {
+                data.map(
+                  (value, index) => {
+                    return <div className="col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                      <div className="card">
 
-                    <div class="col col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
-                        <div class="card" >
-                            <img height="250px" src="https://static.wixstatic.com/media/6ade35_a3136df213c249deb0f7c28779d685a9~mv2.png/v1/fill/w_480,h_480,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/6ade35_a3136df213c249deb0f7c28779d685a9~mv2.png" class="card-img-top" alt="..." />
-                            <div class="card-body">
-                                <h5 class="card-title">BASIC PACKAGE</h5>
-                                <p class="card-text">One trainer for many</p>
-                                <p class="card-text">4999</p>
+                        <div className="card-body">
+                        <h5 className="card-title">Package Name: {value.packageName}</h5>
+                          <p className="card-text">Description: {value.packageDes}</p>
+                          <p className="card-text">Amount: {value.packageAmount}</p>
 
-                            </div>
+
                         </div>
+                      </div>
                     </div>
-                    <div class="col col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                  }
+                )
+              }
+
+            </div>
+          </div>
+        </div>
+      </div>
+            
+            {/* <div class="col col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                         <div class="card" >
                             <img height="250px" src="https://centaur-wp.s3.eu-central-1.amazonaws.com/creativereview/prod/content/uploads/2022/03/extra-logo-old-new.gif?auto=compress,format&q=60&w=1080&h=1080" class="card-img-top" alt="..." />
                             <div class="card-body">
@@ -80,8 +98,8 @@ const Home = () => {
                     </div>
 
 
-                </div>
-            </div>
+                </div> */}
+            {/* </div> */}
 
             <br /><br />
 
