@@ -110,14 +110,14 @@ const UserAdd = () => {
                     </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <label htmlFor="" className="form-label">E-mail</label>
-                                <input type="text" name="email" id="" value={input.email} onChange={inputHandler} />
+                                <input className='form-control' type="text" name="email" id="" value={input.email} onChange={inputHandler} />
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <label htmlFor="" className="form-label">Password</label>
-                                <input type="password" name="password" id="" value={input.password} onChange={inputHandler}  />
+                                <input className='form-control' type="password" name="password" id="" value={input.password} onChange={inputHandler}  />
                             </div>
 
-                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                 <button className="btn btn-success" onClick={readValues} >Submit</button>
                             </div>
                         </div>
