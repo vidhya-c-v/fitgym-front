@@ -22,8 +22,11 @@ const UserProfile = () => {
     }
     useEffect(() => { readValues() }, [])
     return (
-        <div>
+        <div className='homebg'>
             <UserNavBar/>
+            <br>
+            </br>
+            <br></br>
 
             <div className="container">
                 <div className="row">
