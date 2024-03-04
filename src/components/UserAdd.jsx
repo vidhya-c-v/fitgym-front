@@ -122,16 +122,7 @@ const UserAdd = () => {
                                     }
                                 </select>
                             </div>
-                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-
-                                <label htmlFor="" className="form-label">Fees Paid</label>
-                                <label htmlFor="" className="form-label" name='fee' value={input.fee} onChange={inputHandler}></label>
-                                <select name="" id="" className="form-control">
-                                    <option value="A+">YES</option>
-                                    <option value="A-">NO</option>
-                                   
-                                </select>
-                            </div>
+                            
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <label htmlFor="" className="form-label">E-mail</label>
                                 <input className='form-control' type="text" name="email" id="" value={input.email} onChange={inputHandler} />
