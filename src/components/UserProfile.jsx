@@ -7,15 +7,14 @@ import { useEffect } from 'react';
 const UserProfile = () => {
     const [input, setInput] = new useState(
         {
-            // _id: sessionStorage.getItem("userId")
-            _id:"65dd6377c734c3e661488d1f"
+            _id: sessionStorage.getItem("userid")
         }
     )
     const [output, setOutput] = useState([]);
 
     const readValues = () => {
         console.log(input)
-        axios.post("http://localhost:3001/api/member/viewprofile", input,{headers:{token:sessionStorage.getItem("token")}}).then((response) => {
+        axios.post("http://localhost:3001/api/member/viewmemberdetails", input,{headers:{token:sessionStorage.getItem("token")}}).then((response) => {
             setOutput(response.data)
             console.log(response.data)
 
@@ -32,40 +31,22 @@ const UserProfile = () => {
 
                         {
                             output.map(
-                                (vlaue,index)=>{
+                                (value,index)=>{
                                     return <div class="card border-dark mb-3" >
                                     <div class="card-header">Profile</div>
                                     <div class="card-body">
-                                        <h2 class="card-title">Name: {vlaue.name}</h2>
-                                        <h5 class="card-text">Place : {vlaue.place}</h5>
-                                        <h5 class="card-text">Age : {vlaue.age}</h5>
-                                        <h5 class="card-text">Height : {vlaue.height}</h5>
-                                        <h5 class="card-text">Weight : {vlaue.weight}</h5>
-                                        <h5 class="card-text">Blood Group :{vlaue.bloodGroup}</h5>
-                                        <h5 class="card-text">Email : {vlaue.email}</h5>
-                                        <h5 class="card-text">Joined Date : {vlaue.registerDate}</h5>
-                                    </div>
-                                </div>
-                                }
-                            )
-                        }
-
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-
-                        {
-                            output.map(
-                                (value,index)=>{
-                                    return <div class="card">
-                                    <div class="card-header">
-                                        Current Package
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Package Name : {value.packageId.packageName}</h5>
-                                        <p class="card-text">Package Description : {value.packageId.packageDes}</p>
-                                        <p class="card-text">Price : {value.packageId.packageAmount}</p>
+                                        <h2 class="card-title">Name: {value.name}</h2>
+                                        <h5 class="card-text">Place : {value.place}</h5>
+                                        <h5 class="card-text">Age : {value.age}</h5>
+                                        <h5 class="card-text">Height : {value.height}</h5>
+                                        <h5 class="card-text">Weight : {value.weight}</h5>
+                                        <h5 class="card-text">Blood Group :{value.bloodGroup}</h5>
+                                        <h5 class="card-text">Email : {value.email}</h5>
+                                        <h5 class="card-text">Joined Date : {value.registerDate}</h5>
+                                        <h5 class="card-text">Package Name : {value.package_name}</h5>
+                                        <h5 class="card-text">Package Amount : {value.package_amount}</h5>
+                                        <h5 class="card-text">Due Amount : {value.dueAmount}</h5>
+                                        <h5 class="card-text">Remaining days for due : {value.remainingDaysForNextDue}</h5>        
                                     </div>
                                 </div>
                                 }
