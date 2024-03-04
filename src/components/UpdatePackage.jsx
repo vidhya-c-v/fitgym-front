@@ -31,11 +31,11 @@ const UpdatePackage = () => {
                 alert("Invalid user email")
             }
             
-            if (response.data.status == "invalid package") {
+            else if (response.data.status == "invalid package") {
                 alert("Invalid package name")
             }
 
-            if (response.data.status == "success") {
+            else if (response.data.status == "success") {
                 alert("Package updated successfully")
                 setInput(
                     {
@@ -50,7 +50,7 @@ const UpdatePackage = () => {
                 setInput(
                     {
                         email: "",
-                        packagename: ""
+                        packageName: ""
                     }
                 )
             }
@@ -71,13 +71,13 @@ const UpdatePackage = () => {
                     </div>
                      <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
-                                <label htmlFor="" className="form-label">Package Id</label>
-                                <select className="form-control" name="packageId" id="" onChange={inputHandler}>
+                                <label htmlFor="" className="form-label">Package Name</label>
+                                <select className="form-control" name="packagename" id="" onChange={inputHandler}>
                                 <option>--Select package--</option>
                                     {
                                         data.map(
                                             (value, index) => {
-                                                return <option value={value._id} >{value.packageName}</option>
+                                                return <option value={value.packageName} >{value.packageName}</option>
 
                                             }
                                         )
