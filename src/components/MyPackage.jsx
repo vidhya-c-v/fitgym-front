@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import UserNavBar from './UserNavBar'
+import axios from 'axios';
 
 const MyPackage = () => {
 
@@ -32,7 +33,7 @@ const MyPackage = () => {
                     
 
                     {
-                        data.map(
+                        output.map(
                             (value, index) => {
                                 return <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                     
@@ -42,9 +43,9 @@ const MyPackage = () => {
                                         My Package
                                     </div>
                                     <div class="card-body">
-                                        <h5 class="card-title">{value.packageName}</h5>
-                                        <p class="card-text">{value.packageDes}</p>
-                                        <p class="card-text">{value.packageAmount}</p>
+                                        <h5 class="card-title">{value.package_name}</h5>
+                                        {/* <p class="card-text">{value.packageDes}</p> */}
+                                        <p class="card-text">{value.package_amount}</p>
                                     </div>
                                 </div>
         
