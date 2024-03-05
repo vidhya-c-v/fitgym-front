@@ -43,9 +43,9 @@ const MyPackage = () => {
                                         My Package
                                     </div>
                                     <div class="card-body">
-                                        <h5 class="card-title">{value.packageName}</h5>
-                                        <p class="card-text">{value.packageDes}</p>
-                                        <p class="card-text">{value.packageAmount}</p>
+                                        <h5 class="card-title">{value.package_name}</h5>
+                                        {/* <p class="card-text">{value.packageDes}</p> */}
+                                        <p class="card-text">{value.package_amount}</p>
                                     </div>
                                 </div>
         
