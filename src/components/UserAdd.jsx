@@ -20,11 +20,9 @@ const UserAdd = () => {
             "height": "",
             "weight": "",
             "bloodGroup": "",
-            "emailid": "",
+            "email": "",
             "password": "",
-            "packageId": "",
-            "fee": ""
-
+            "packageId": ""
 
         }
     )
@@ -48,12 +46,9 @@ const UserAdd = () => {
                         "height": "",
                         "weight": "",
                         "bloodGroup": "",
-                        "emailid": "",
+                        "email": "",
                         "password": "",
-                        "packageId": "",
-                        "fee": ""
-
-
+                        "packageId": ""
                     }
                 )
 
@@ -95,8 +90,7 @@ const UserAdd = () => {
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                                 <label htmlFor="" className="form-label">Blood group</label>
-                                <label htmlFor="" className="form-label" name='bloodGroup' value={input.bloodGroup} onChange={inputHandler}></label>
-                                <select name="" id="" className="form-control">
+                                <select className="form-control" name='bloodGroup' value={input.bloodGroup} onChange={inputHandler} >
                                     <option value="A+">A+</option>
                                     <option value="A-">A-</option>
                                     <option value="B+">B+</option>
