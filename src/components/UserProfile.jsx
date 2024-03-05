@@ -14,7 +14,7 @@ const UserProfile = () => {
 
     const readValues = () => {
         console.log(input)
-        axios.post("http://localhost:3001/api/member/viewmemberdetails", input,{headers:{token:sessionStorage.getItem("token")}}).then((response) => {
+        axios.post("http://localhost:3001/api/member/viewmemberpackage", input,{headers:{token:sessionStorage.getItem("token")}}).then((response) => {
             setOutput(response.data)
             console.log(response.data)
 
