@@ -1,49 +1,56 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
 import NavBar from './NavBar'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const AdminLogin = () => {
-    const navigate=useNavigate()
-    const [input,setInput] = new useState(
-        {
-          "username":"",
-          "password":""
-        }
-      )
-      const inputHandler = (event)=>{
-        setInput({...input,[event.target.name]:event.target.value})
-      }
-      const readValues = ()=>{
-        console.log(input)
-        if(input.username=="admin" && input.password=="admin")
-        {
-            navigate("/adminHomePage")
-          
-          setInput({
-            "username":"",
-            "password":""
-          })
-        }
-        else
-        {
-          alert("Invalid Username or Password")
-          setInput(
-            {
-                "username":"",
-                "password":""
-              }
-          )
-        }
-      }
-  return (
-    <div>
-        <NavBar/>
 
-         <div className="container">
+    const [input, setInput] = new useState(
+        {
+            "mail": "",
+            "password": ""
+        }
+    )
+    const navig = useNavigate()
+    const inputHandler = (event) => {
+        setInput({ ...input, [event.target.name]: event.target.value })
+    }
+    const readValues = () => {
+        axios.post("http://localhost:3001/api/admin/adminlogin", input).then(
+            (response) => {
+                if (response.data.status == "success") {
+                    sessionStorage.setItem("admintoken",response.data.admintoken)
+                    
+                    sessionStorage.setItem("adminid", response.data.admindata._id)
+                    navig("/adminHomePage")
+                }else if (response.data.status == "incorrect password") {
+                    alert("Incorrect Password")
+
+                    setInput(
+                        {
+                            "mail": "",
+                            "password": ""
+                        }
+                    )
+                } 
+                else {
+                    alert("No user Found")
+                }
+            }
+        )
+    }
+
+
+
+    return (
+        <div>
+            <NavBar />
+
+            <div className="container" >
                 <div className="row g-4">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         <br />
-                        <h1><center><b>Admin Login</b></center></h1>
+                        <h1><center><b>Admin Login </b></center></h1>
                         <div className="container">
                             <div className="row g-4">
                                 <center>
@@ -57,34 +64,40 @@ const AdminLogin = () => {
                                                     <div className="row g-3">
                                                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                                             <br />
-                                                            <label htmlFor="" className="form-label">USERNAME</label>
-                                                            <input type="text" className="form-control" name="username" value={input.usernam} onChange={inputHandler} />
+                                                            <label htmlFor="" className="form-label">EMAIL-ID</label>
+                                                            <input type="email" name="mail" value={input.mail} onChange={inputHandler}  className="form-control" />
                                                         </div>
                                                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                                             <label htmlFor="" className="form-label">PASSWORD</label>
-                                                            <input type="password" className="form-control" name="password" value={input.password} onChange={inputHandler}/>
+                                                            <input type="password" name="password" value={input.password} onChange={inputHandler}  className="form-control" />
+
                                                         </div>
                                                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                                                        <center> <button className="btn btn-success" onClick={readValues}>Login</button></center>
+                                                            <Link class="btn btn-primary" onClick={readValues} >LOGIN</Link>
+
                                                         </div>
+
                                                     </div>
                                                 </div>
+
                                             </div>
                                         </div>
+
                                     </div>
                                 </center>
                             </div>
                         </div>
                     </div>
+
                 </div>
-        </div> 
-                                
+            </div>
 
 
 
-      
-    </div>
-  )
+
+        </div>
+
+    )
 }
 
 export default AdminLogin

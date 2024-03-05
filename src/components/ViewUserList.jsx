@@ -46,6 +46,7 @@ const ViewUserList = () => {
                                             <th scope="col">Blood Group</th>
                                             <th scope="col">E-mail</th>
                                             <th scope="col">Package Amount</th>
+                                            
                                             <th scope="col">Registration Date</th>
                                             <th scope="col">Last Packege Update</th>
                                             <th scope="col"></th>
@@ -65,6 +66,7 @@ const ViewUserList = () => {
                                                         <td>{value.bloodGroup}</td>
                                                         <td>{value.email}</td>
                                                         <td>{value.previousPackageAmount}</td>
+                                                        
                                                         <td>{value.registerDate}</td>
                                                         <td>{value.lastPackageUpdateDate}</td>
                                                         <br /><br /><br /><td><button className="btn btn-danger" onClick={()=>{deleteAction(value._id)}}>Delete</button></td>
