@@ -30,7 +30,10 @@ const UserNavBar = () => {
                             </li>
 
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/packagedetails"><font color="white">Package</font></Link>
+                                <Link className="nav-link active" aria-current="page" to="/packagedetails"><font color="white">Current Package</font></Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link active" aria-current="page" to="/updateuserpackage"><font color="white">Update Package</font></Link>
                             </li>
 
                         </ul>
