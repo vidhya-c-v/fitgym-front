@@ -33,23 +33,13 @@ const UserProfile = () => {
         fetchAllPackages();
     }, []); // Run once on component mount
 
-    // Update user profile after package is successfully updated
-    const updateUserProfile = () => {
-        fetchUserDetails();
-    };
-
     // Function to handle package selection
     const handlePackageSelection = (packageId) => {
-        setSelectedPackageId(packageId);
-        updateSelectedPackage(packageId);
-    };
-
-    // Function to update selected package for the user
-    const updateSelectedPackage = (packageId) => {
         axios.post("http://localhost:3001/api/member/updatepackage", { userId: sessionStorage.getItem("userid"), packageId }, { headers: { token: sessionStorage.getItem("token") } })
             .then((response) => {
                 console.log("Selected package updated successfully");
-                updateUserProfile(); // Fetch updated user details after package update
+                fetchUserDetails(); // Fetch updated user details after package update
+                setSelectedPackageId(packageId); // Update selected package ID in state
             })
             .catch(error => {
                 console.error("Error updating selected package:", error);
@@ -72,36 +62,23 @@ const UserProfile = () => {
                                 {output.map((user, index) => (
                                     <React.Fragment key={index}>
                                         <h2 className="card-title">Name: {user.name}</h2>
-                                        <h5 className="card-text">Place : {user.place}</h5>
-                                        <h5 className="card-text">Age : {user.age}</h5>
-                                        <h5 className="card-text">Height: {user.height}</h5>
-                                        <h5 className="card-text">Weight: {user.weight}</h5>
-                                        <h5 className="card-text">Bloodgroup: {user.bloodGroup}</h5>
-                                        <h5 className="card-text">Join date: {user.registerDate}</h5>
-                                        <h5 className="card-text">Due Amount : {user.dueAmount}</h5>
-                                        <h5 className="card-text">Remaining days for due : {user.remainingDaysForNextDue}</h5>
-                                        {/* Display selected package details */}
-                                        <div className="card border-dark mb-3">
-                                            <div className="card-header">Selected Package</div>
-                                            <div className="card-body">
-                                                {allPackages.map(pkg => {
-                                                    if (pkg._id === selectedPackageId) {
-                                                        return (
-                                                            <React.Fragment key={pkg._id}>
-                                                                <h5 className="card-title">Package Name: {pkg.packageName}</h5>
-                                                                <p className="card-text">Package Description: {pkg.packageDes}</p>
-                                                                <p className="card-text">Package Amount: {pkg.packageAmount}</p>
-                                                            </React.Fragment>
-                                                        );
-                                                    }
-                                                    return null;
-                                                })}
-                                            </div>
-                                        </div>
+                                        {/* Display more user details as needed */}
                                     </React.Fragment>
                                 ))}
                             </div>
                         </div>
+
+                        {/* Display selected package details */}
+                        {output.map((user, index) => (
+                            <div key={index} className="card border-dark mb-3">
+                                <div className="card-header">Selected Package</div>
+                                <div className="card-body">
+                                    <h5 className="card-title">Package Name: {user.package_name}</h5>
+                                    <p className="card-text">Package Description: {user.package_description}</p>
+                                    <p className="card-text">Package Amount: {user.package_amount}</p>
+                                </div>
+                            </div>
+                        ))}
 
                         {/* Display all available packages */}
                         <h2><font color="white">All Available Packages</font></h2>
@@ -113,6 +90,7 @@ const UserProfile = () => {
                                             <h5 className="card-title">{pkg.packageName}</h5>
                                             <p className="card-text">{pkg.packageDes}</p>
                                             <p className="card-text">{pkg.packageAmount}</p>
+                                            {/* Button to select a package */}
                                             <button onClick={() => handlePackageSelection(pkg._id)}>Select</button>
                                         </div>
                                     </div>
