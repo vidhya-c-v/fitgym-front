@@ -1,67 +1,105 @@
 import axios from 'axios';
-import React from 'react'
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import UserNavBar from './UserNavBar';
-import { useEffect } from 'react';
 
 const UserProfile = () => {
-    const [input, setInput] = new useState(
-        {
-            _id: sessionStorage.getItem("userid")
-        }
-    )
     const [output, setOutput] = useState([]);
+    const [allPackages, setAllPackages] = useState([]);
+    const [selectedPackageId, setSelectedPackageId] = useState(null);
 
-    const readValues = () => {
-        console.log(input)
-        axios.post("http://localhost:3001/api/member/viewmemberdetails", input,{headers:{token:sessionStorage.getItem("token")}}).then((response) => {
-            setOutput(response.data)
-            console.log(response.data)
+    const fetchUserDetails = () => {
+        axios.post("http://localhost:3001/api/member/viewmemberdetails", { _id: sessionStorage.getItem("userid") }, { headers: { token: sessionStorage.getItem("token") } })
+            .then((response) => {
+                setOutput(response.data);
+                setSelectedPackageId(response.data[0]?.package_id);
+            })
+            .catch(error => {
+                console.error("Error fetching user details:", error);
+            });
+    };
 
-        })
-    }
-    useEffect(() => { readValues() }, [])
+    const fetchAllPackages = () => {
+        axios.get("http://localhost:3001/api/package/viewallpackage")
+            .then((response) => {
+                setAllPackages(response.data);
+            })
+            .catch(error => {
+                console.error("Error fetching all packages:", error);
+            });
+    };
+
+    useEffect(() => {
+        fetchUserDetails();
+        fetchAllPackages();
+    }, []); // Run once on component mount
+
     return (
         <div className='homebg'>
-            <UserNavBar/>
-            <br>
-            </br>
-            <br></br>
+            <UserNavBar />
+            <br />
+            <br />
 
             <div className="container">
                 <div className="row">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                        {/* Display user details */}
+                        <div className="card border-dark mb-3">
+                            <div className="card-header">Profile</div>
+                            <div className="card-body">
+                                {output.map((user, index) => (
+                                    <React.Fragment key={index}>
+                                        <h2 className="card-title">Name: {user.name}</h2>
+                                        <h5 className="card-text">Place : {user.place}</h5>
+                                        <h5 className="card-text">Age : {user.age}</h5>
+                                        <h5 className="card-text">Height: {user.height}</h5>
+                                        <h5 className="card-text">Weight: {user.weight}</h5>
+                                        <h5 className="card-text">Bloodgroup: {user.bloodGroup}</h5>
+                                        <h5 className="card-text">Join date: {user.registerDate}</h5>
+                                        <h5 className="card-text">Due Amount : {user.dueAmount}</h5>
+                                        <h5 className="card-text">Remaining days for due : {user.remainingDaysForNextDue}</h5>
+                                        
 
-                        {
-                            output.map(
-                                (value,index)=>{
-                                    return <div class="card border-dark mb-3" >
-                                    <div class="card-header">Profile</div>
-                                    <div class="card-body">
-                                        <h2 class="card-title">Name: {value.name}</h2>
-                                        <h5 class="card-text">Place : {value.place}</h5>
-                                        <h5 class="card-text">Age : {value.age}</h5>
-                                        <h5 class="card-text">Height : {value.height}</h5>
-                                        <h5 class="card-text">Weight : {value.weight}</h5>
-                                        <h5 class="card-text">Blood Group :{value.bloodGroup}</h5>
-                                        <h5 class="card-text">Email : {value.email}</h5>
-                                        <h5 class="card-text">Joined Date : {value.registerDate}</h5>
-                                        <h5 class="card-text">Package Name : {value.package_name}</h5>
-                                        <h5 class="card-text">Package Amount : {value.package_amount}</h5>
-                                        <h5 class="card-text">Due Amount : {value.dueAmount}</h5>
-                                        <h5 class="card-text">Remaining days for due : {value.remainingDaysForNextDue}</h5>        
+                                        
+
+                                        
+                                        {/* Add more user details as needed */}
+                                    </React.Fragment>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Display selected package details */}
+                        {output.map((user, index) => (
+                            <div key={index} className="card border-dark mb-3">
+                                <div className="card-header">Selected Package</div>
+                                <div className="card-body">
+                                    <h5 className="card-title">Package Name: {user.package_name}</h5>
+                                    <p className="card-text">Package Description: {user.package_description}</p>
+                                    <p className="card-text">Package Amount: {user.package_amount}</p>
+                                </div>
+                            </div>
+                        ))}
+
+                        {/* Display all available packages */}
+                        <h2><font color="white">All Available Packages</font></h2>
+                        <div className="row">
+                            {allPackages.map((pkg, index) => (
+                                <div key={index} className="col-4">
+                                    <div className={`card border-dark mb-3 ${pkg._id === selectedPackageId ? 'selected-package' : ''}`}>
+                                        <div className="card-body">
+                                            <h5 className="card-title">{pkg.packageName}</h5>
+                                            <p className="card-text">{pkg.packageDes}</p>
+                                            <p className="card-text">{pkg.packageAmount}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                }
-                            )
-                        }
-
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
-    )
-}
+    );
+};
 
-export default UserProfile
+export default UserProfile;
