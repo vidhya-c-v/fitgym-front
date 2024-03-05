@@ -31,8 +31,8 @@ const TrainerNavbar = () => {
                                     Attendence
                                 </Link>
                                 <ul className="dropdown-menu">
-                                    <li><Link className="dropdown-item" to="/">Mark Attendence</Link></li>
-                                    <li><Link className="dropdown-item" to="/">View Attendence</Link></li>
+                                    <li><Link className="dropdown-item" to="#">Mark Attendence</Link></li>
+                                    <li><Link className="dropdown-item" to="#">View Attendence</Link></li>
                                 </ul>
                             </li>
 
