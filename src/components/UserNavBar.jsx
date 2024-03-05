@@ -29,9 +29,7 @@ const UserNavBar = () => {
                                 <Link className="nav-link active" aria-current="page" to="/userprofile"><font color="white">Profile</font></Link>
                             </li>
 
-                            <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/packagedetails"><font color="white">Package</font></Link>
-                            </li>
+                            
 
                         </ul>
                         <button className="btn btn-outline-light" onClick={handleLogout}>
