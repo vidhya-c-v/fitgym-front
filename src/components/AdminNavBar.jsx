@@ -53,6 +53,7 @@ const AdminNavBar = () => {
             <li><Link className="dropdown-item" to="/addpackage">Add Package</Link></li>
             <li><Link className="dropdown-item" to="/updatepackage">Update Package</Link></li>
             <li><Link className="dropdown-item" to="/packageview">View Package</Link></li>
+            <li><Link className="dropdown-item" to="/approve">Approve Package</Link></li>
           </ul>
         </li>
 

@@ -6,12 +6,14 @@ const UserProfile = () => {
     const [output, setOutput] = useState([]);
     const [allPackages, setAllPackages] = useState([]);
     const [selectedPackageId, setSelectedPackageId] = useState(null);
+    const [requestStatus, setRequestStatus] = useState('');
 
     const fetchUserDetails = () => {
         axios.post("http://localhost:3001/api/member/viewmemberdetails", { _id: sessionStorage.getItem("userid") }, { headers: { token: sessionStorage.getItem("token") } })
             .then((response) => {
                 setOutput(response.data);
                 setSelectedPackageId(response.data[0]?.package_id);
+                setRequestStatus(response.data[0]?.requestStatus);
             })
             .catch(error => {
                 console.error("Error fetching user details:", error);
@@ -31,7 +33,20 @@ const UserProfile = () => {
     useEffect(() => {
         fetchUserDetails();
         fetchAllPackages();
-    }, []); // Run once on component mount
+    }, []);
+
+    const requestPackageChange = (packageId) => {
+        axios.post("http://localhost:3001/api/package/requestChange", { userId: sessionStorage.getItem("userid"), newPackageId: packageId }, { headers: { token: sessionStorage.getItem("token") } })
+            .then((response) => {
+                console.log("Package change requested successfully.");
+                alert("Package change requested successfully.");
+                setRequestStatus('pending'); // Update request status
+            })
+            .catch(error => {
+                console.error("Error requesting package change:", error);
+                alert("Failed to request package change. Please try again.");
+            });
+    };
 
     return (
         <div className='homebg'>
@@ -42,7 +57,6 @@ const UserProfile = () => {
             <div className="container">
                 <div className="row">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                        {/* Display user details */}
                         <div className="card border-dark mb-3">
                             <div className="card-header">Profile</div>
                             <div className="card-body">
@@ -57,30 +71,26 @@ const UserProfile = () => {
                                         <h5 className="card-text">Join date: {user.registerDate}</h5>
                                         <h5 className="card-text">Due Amount : {user.dueAmount}</h5>
                                         <h5 className="card-text">Remaining days for due : {user.remainingDaysForNextDue}</h5>
-                                        
-
-                                        
-
-                                        
-                                        {/* Add more user details as needed */}
+                                        <h5 className="card-text">Request Status: {requestStatus}</h5>
+                                        {requestStatus === 'pending' && <p className="text-info">Request is pending...</p>}
                                     </React.Fragment>
                                 ))}
                             </div>
                         </div>
 
-                        {/* Display selected package details */}
-                        {output.map((user, index) => (
-                            <div key={index} className="card border-dark mb-3">
-                                <div className="card-header">Selected Package</div>
-                                <div className="card-body">
-                                    <h5 className="card-title">Package Name: {user.package_name}</h5>
-                                    <p className="card-text">Package Description: {user.package_description}</p>
-                                    <p className="card-text">Package Amount: {user.package_amount}</p>
-                                </div>
+                        <div className="card border-dark mb-3">
+                            <div className="card-header">Selected Package</div>
+                            <div className="card-body">
+                                {output.map((user, index) => (
+                                    <React.Fragment key={index}>
+                                        <h5 className="card-title">Package Name: {user.package_name}</h5>
+                                        <p className="card-text">Package Description: {user.package_description}</p>
+                                        <p className="card-text">Package Amount: {user.package_amount}</p>
+                                    </React.Fragment>
+                                ))}
                             </div>
-                        ))}
+                        </div>
 
-                        {/* Display all available packages */}
                         <h2><font color="white">All Available Packages</font></h2>
                         <div className="row">
                             {allPackages.map((pkg, index) => (
@@ -90,6 +100,7 @@ const UserProfile = () => {
                                             <h5 className="card-title">{pkg.packageName}</h5>
                                             <p className="card-text">{pkg.packageDes}</p>
                                             <p className="card-text">{pkg.packageAmount}</p>
+                                            <button onClick={() => requestPackageChange(pkg._id)}>Request Package Change</button>
                                         </div>
                                     </div>
                                 </div>
