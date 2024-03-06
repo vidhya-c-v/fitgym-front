@@ -19,7 +19,7 @@ const SearchUser = () => {
 
 
     const readValues = () => {
-        axios.post("http://localhost:3001/api/member/search", { email: input.email }).then(
+        axios.post("http://localhost:3001/api/member/viewmemberdetails", input).then(
             (response) => {
                 setData(response.data)
                 if (response.data.length == 0) {
@@ -56,12 +56,19 @@ col-lg-12 col-xl-12 col-xxl-12">
                                     {
                                         data.map((value, index) => {
                                             return <li>
-                                                <strong>MemberId:</strong> {value.email}  <br />
+                                                <strong>Member Email Id:</strong> {value.email}  <br />
                                                 <strong>Name:</strong> {value.name} <br />
                                                 <strong>Age:</strong> {value.age} <br />
                                                 <strong>Place:</strong> {value.place} <br />
+                                                <strong>Height:</strong> {value.height} <br />
+                                                <strong>Weight:</strong> {value.weight} <br />
+                                                <strong>Blood Group:</strong> {value.bloodGroup} <br />
                                                 <strong>Regsiter Date:</strong> {value.registerDate} <br />
-                                                <strong>Package Name:</strong> {value.packageId.packageName} <br />
+                                                <strong>Package Name:</strong> {value.package_name} <br />
+                                                <strong>Package Amount:</strong> {value.package_amount} <br />
+                                                <strong>Due Amount:</strong> {value.dueAmount} <br />
+                                                <strong>Remaining days for due:</strong> {value.remainingDaysForNextDue} <br />
+                                                
                                             </li>
                                         }
                                         )}

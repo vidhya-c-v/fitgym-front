@@ -1,4 +1,6 @@
 
+
+
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -28,6 +30,7 @@ import SearchUser from './components/SearchUser';
 import TrainerSearch from './components/TrainerSearch';
 import PackageView from './components/PackageView';
 import UserAdd from './components/UserAdd';
+import AdminPage from './components/AdminPage';
 
 
 
@@ -66,6 +69,7 @@ function App() {
 
         <Route path='/adduser' element = {<AddUser/>} />
         <Route path='/add' element = {<UserAdd/>} />
+        <Route path='/approve' element = {<AdminPage/>} />
        
 
 

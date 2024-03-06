@@ -19,23 +19,20 @@ const TrainerLogin = () => {
         axios.post("http://localhost:3001/api/trainer/signintrainer", input).then(
             (response) => {
                 if (response.data.status == "success") {
+                    sessionStorage.setItem("trainertoken",response.data.trainertoken)
+                    
                     sessionStorage.setItem("trainerid", response.data.trainerdata._id)
                     navig("/trainerhomepage")
-                    setInput(
-                        {
-                            "emailid": "",
-                            "password": ""
-                        }
-                    )
-                } else if (response.data.status == "incorrect password") {
+                }else if (response.data.status == "incorrect password") {
                     alert("Incorrect Password")
+
                     setInput(
                         {
                             "emailid": "",
                             "password": ""
                         }
                     )
-                }
+                } 
                 else {
                     alert("No user Found")
                 }
