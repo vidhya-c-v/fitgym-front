@@ -10,57 +10,76 @@ const AdminPage = () => {
     }, []);
 
     const fetchPendingRequests = async () => {
-        try {
-            const response = await axios.get('http://localhost:3001/api/admin/pendingRequests');
-            setRequests(response.data);
-        } catch (error) {
-            console.error('Error fetching pending requests:', error);
-        }
+        axios.get('http://localhost:3001/api/admin/pendingRequests').then((response) => {
+                setRequests(response.data);
+            })
     };
 
-    const handleApproval = async (id, status) => {
-        try {
-            await axios.put(`http://localhost:3001/api/admin/approveRejectRequest/${id}`, { status });
+    const handleReject = (id) => {
+        axios.put(`http://localhost:3001/api/admin/rejectRequest/${id}`).then((response) => {
             // Refresh pending requests after approving/rejecting
             fetchPendingRequests();
             // Show alert based on the status
-            if (status === 'approved') {
-                window.alert('Request successfully approved.');
+            if (response.data.status == 'rejected successfully') {
+                alert('Request successfully rejected.');
             } else {
-                window.alert('Request successfully rejected.');
+                alert('Something went wrong');
             }
-        } catch (error) {
-            console.error('Error updating request:', error);
-        }
+        })
+        
+    };
+
+    const handleApproval = (id) => {
+        axios.put(`http://localhost:3001/api/admin/approveRequest/${id}`).then((response) => {
+            // Refresh pending requests after approving/rejecting
+            fetchPendingRequests();
+            // Show alert based on the status
+            if (response.data.status == 'same package') {
+                alert('Already same package');
+            }
+            else if (response.data.status == 'approved successfully') {
+                alert('Request approved successfully');
+            } else {
+                alert('Something went wrong');
+            }
+        })
     };
 
     return (
         <div>
-            <AdminNavBar/>
+            <AdminNavBar />
             <h1>Pending Package Change Requests</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>User ID</th>
-                        <th>New Package ID</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {requests.map(request => (
-                        <tr key={request._id}>
-                            <td>{request.userId}</td>
-                            <td>{request.newPackageId}</td>
-                            <td>{request.status}</td>
-                            <td>
-                                <button onClick={() => handleApproval(request._id, 'approved')}>Approve</button>
-                                <button onClick={() => handleApproval(request._id, 'rejected')}>Reject</button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <div className="container">
+                <div className="row g-3">
+                    <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 ">
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>New Package ID</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {requests.map((value, index) => {
+                                    return <tr>
+                                        <td>{value.userId.name}</td>
+                                        <td>{value.newPackageId.packageName}</td>
+                                        <td>{value.status}</td>
+                                        
+                                        <td>
+                                            
+                                            <button className='btn btn-success' onClick={() => handleApproval(value._id)}>Approve</button>
+                                            &nbsp;<button className='btn btn-danger' onClick={() => handleReject(value._id)}>Reject</button>
+                                        </td>
+                                    </tr>
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
