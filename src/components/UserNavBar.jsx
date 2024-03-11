@@ -28,6 +28,9 @@ const UserNavBar = () => {
                             <li className="nav-item">
                                 <Link className="nav-link active" aria-current="page" to="/userprofile"><font color="white">Profile</font></Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" aria-current="page" to="/tranHistory"><font color="white">Payment History</font></Link>
+                            </li>
 
                             
 
